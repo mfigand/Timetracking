@@ -4,7 +4,8 @@
 <ul>
   <% @entries.each do |entries| %>
      <% if entries.hours != nil %>
-       <li><%= "#{entries.hours} h #{entries.minutes} m - #{entries.date}" %> </li>
+       <li><%= "#{entries.hours} h #{entries.minutes} m - #{entries.date.to_date}"%>
+         <%= link_to("Edit", edit_project_entry_path(@projects, entries)) %> </li>
       <% end %>
   <% end%>
 </ul>
