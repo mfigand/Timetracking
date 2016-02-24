@@ -17,13 +17,19 @@ class EntriesController < ApplicationController
     # Find the project
     @project = Project.find(params[:project_id])
     # New entry
-    @entry = @project.entries.new(hours: params[:hours], minutes: params[:minutes], date: params[:date])
+    @entry = @project.entries.new entry_params
     # Try to save it
     if @entry.save
-      redirect_to action:
-
-
+      redirect_to action: :index, project_id: @project.id
+    else
+      render 'new'
+    end
   end
 
+  private
+
+  def entry_params
+    params.require(:entry).permit(:hours, :minutes, :date)
+  end
 
 end
