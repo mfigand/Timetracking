@@ -4,7 +4,9 @@
 <ul>
   <% @projects.each do |project| %>
      <% if project.description != nil %>
-       <li><%= "#{project.name} - #{project.description}" %> </li>
+       <li><%= link_to(project.name, project_entries_path(project)) + " - #{project.description}" %>
+         <a href="<%= project_entries_path(project.id) %>">Entries</a>
+       </li>
       <% end %>
   <% end%>
 </ul>
