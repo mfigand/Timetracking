@@ -1,0 +1,12 @@
+
+
+<%= "Project name: #{@projects.name}" %>
+<ul>
+  <% @entries.each do |entries| %>
+     <% if entries.hours != nil %>
+       <li><%= "#{entries.hours} h #{entries.minutes} m - #{entries.date}" %> </li>
+      <% end %>
+  <% end%>
+</ul>
+
+<p>The total hours worked this month is <%= @current_month_hours %></p>
