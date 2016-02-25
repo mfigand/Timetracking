@@ -3,9 +3,8 @@ class EntriesController < ApplicationController
   def index
     @projects = Project.find(params[:project_id])
     @entries = @projects.entries
-
-    date = Date.today
-    @current_month_hours = @projects.total_hours_in_month(date.month, date.year)
+    @date = Date.today
+    # @current_month_hours = @projects.total_hours_in_month(date.month, date.year)
   end
 
   def new
@@ -20,8 +19,10 @@ class EntriesController < ApplicationController
     @entry = @project.entries.new entry_params
     # Try to save it
     if @entry.save
+      flash[:notice] = "Entry created succesfully"
       redirect_to action: :index, project_id: @project.id
     else
+      flash[:alert] = "ALERT Entry not created"
       render 'new'
     end
   end
@@ -58,5 +59,7 @@ class EntriesController < ApplicationController
   def entry_params
     params.require(:entry).permit(:hours, :minutes, :date)
   end
+
+
 
 end
