@@ -7523,3 +7523,702 @@ Processing by EntriesController#index as HTML
   [1m[36mEntry Load (0.1ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ?[0m  [["project_id", 25]]
   Rendered entries/index.html.erb within layouts/application (1.2ms)
 Completed 200 OK in 21ms (Views: 19.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/projects/25/entries" for ::1 at 2016-02-25 09:22:16 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by EntriesController#index as HTML
+  Parameters: {"project_id"=>"25"}
+  [1m[35mProject Load (0.4ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", 25]]
+  [1m[36mEntry Load (0.5ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ? AND ("entries"."date" BETWEEN '2016-02-01' AND '2016-02-29')[0m  [["project_id", 25]]
+  [1m[35mEntry Load (0.2ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ?  [["project_id", 25]]
+  Rendered entries/index.html.erb within layouts/application (14.7ms)
+Completed 500 Internal Server Error in 83ms (ActiveRecord: 1.6ms)
+
+ActionView::Template::Error (undefined method `proyect_entry_path' for #<#<Class:0x007fd3bee15160>:0x007fd3ba283418>):
+     6:      <% if entries.hours != nil %>
+     7:        <li><%= "#{entries.hours} h #{entries.minutes} m - #{entries.date.to_date}"%>
+     8:          <%= link_to("Edit", edit_project_entry_path(@projects, entries)) %> </li>
+     9:          <%= limk_to("Delete", proyect_entry_path(@project, entries),
+    10:          method: :delete, data: {confirm: "Are you sure?"}) %>
+    11:       <% end %>
+    12:   <% end%>
+  app/views/entries/index.html.erb:9:in `block in _app_views_entries_index_html_erb___1910684811020514140_70273708565680'
+  app/views/entries/index.html.erb:5:in `_app_views_entries_index_html_erb___1910684811020514140_70273708565680'
+
+
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.4ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (12.9ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (63.0ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (45.7ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (104.6ms)
+
+
+Started GET "/projects/25/entries" for ::1 at 2016-02-25 09:22:51 +0100
+Processing by EntriesController#index as HTML
+  Parameters: {"project_id"=>"25"}
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 25]]
+  [1m[35mEntry Load (0.1ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ? AND ("entries"."date" BETWEEN '2016-02-01' AND '2016-02-29')  [["project_id", 25]]
+  [1m[36mEntry Load (0.1ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ?[0m  [["project_id", 25]]
+  Rendered entries/index.html.erb within layouts/application (9.0ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (undefined method `proyect_entry_path' for #<#<Class:0x007fd3bee15160>:0x007fd3bebc95f0>):
+     6:      <% if entries.hours != nil %>
+     7:        <li><%= "#{entries.hours} h #{entries.minutes} m - #{entries.date.to_date}"%>
+     8:          <%= link_to("Edit", edit_project_entry_path(@projects, entries)) %> </li>
+     9:          <%= limk_to("Delete", proyect_entry_path(@project, entries),
+    10:          method: :delete, data: {confirm: "Are you sure?"}) %>
+    11:       <% end %>
+    12:   <% end%>
+  app/views/entries/index.html.erb:9:in `block in _app_views_entries_index_html_erb___1910684811020514140_70273708565680'
+  app/views/entries/index.html.erb:5:in `_app_views_entries_index_html_erb___1910684811020514140_70273708565680'
+
+
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.1ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (43.8ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (33.0ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (76.4ms)
+
+
+Started GET "/projects/25/entries" for ::1 at 2016-02-25 09:24:12 +0100
+Processing by EntriesController#index as HTML
+  Parameters: {"project_id"=>"25"}
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", 25]]
+  [1m[36mEntry Load (0.1ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ? AND ("entries"."date" BETWEEN '2016-02-01' AND '2016-02-29')[0m  [["project_id", 25]]
+  [1m[35mEntry Load (0.1ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ?  [["project_id", 25]]
+  Rendered entries/index.html.erb within layouts/application (11.0ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (undefined method `proyect_entry_path' for #<#<Class:0x007fd3bee15160>:0x007fd3bea516c8>):
+     6:      <% if entries.hours != nil %>
+     7:        <li><%= "#{entries.hours} h #{entries.minutes} m - #{entries.date.to_date}"%>
+     8:          <%= link_to("Edit", edit_project_entry_path(@projects, entries)) %> </li>
+     9:          <%= limk_to("Delete", proyect_entry_path(@projects, entries),
+    10:          method: :delete, data: {confirm: "Are you sure?"}) %>
+    11:       <% end %>
+    12:   <% end%>
+  app/views/entries/index.html.erb:9:in `block in _app_views_entries_index_html_erb___1910684811020514140_70273706647360'
+  app/views/entries/index.html.erb:5:in `_app_views_entries_index_html_erb___1910684811020514140_70273706647360'
+
+
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.9ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (42.9ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (36.8ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (81.9ms)
+
+
+Started GET "/projects/25/entries" for ::1 at 2016-02-25 09:25:21 +0100
+Processing by EntriesController#index as HTML
+  Parameters: {"project_id"=>"25"}
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 25]]
+  [1m[35mEntry Load (0.1ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ? AND ("entries"."date" BETWEEN '2016-02-01' AND '2016-02-29')  [["project_id", 25]]
+  [1m[36mEntry Load (0.1ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ?[0m  [["project_id", 25]]
+  Rendered entries/index.html.erb within layouts/application (10.3ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 1.0ms)
+
+ActionView::Template::Error (undefined method `proyect_entry_path' for #<#<Class:0x007fd3ba268118>:0x007fd3ba253f60>):
+     6:      <% if entries.hours != nil %>
+     7:        <li><%= "#{entries.hours} h #{entries.minutes} m - #{entries.date.to_date}"%>
+     8:          <%= link_to("Edit", edit_project_entry_path(@projects, entries)) %> </li>
+     9:          <%= limk_to("Delete", proyect_entry_path(@projects, entries),
+    10:          method: :delete, data: {confirm: "Are you sure?"}) %>
+    11:       <% end %>
+    12:   <% end%>
+  app/views/entries/index.html.erb:9:in `block in _app_views_entries_index_html_erb___1910684811020514140_70273668911060'
+  app/views/entries/index.html.erb:5:in `_app_views_entries_index_html_erb___1910684811020514140_70273668911060'
+
+
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.1ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (44.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (32.9ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (71.6ms)
+
+
+Started GET "/projects/25/entries" for ::1 at 2016-02-25 09:28:09 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by EntriesController#index as HTML
+  Parameters: {"project_id"=>"25"}
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", 25]]
+  [1m[36mEntry Load (0.1ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ? AND ("entries"."date" BETWEEN '2016-02-01' AND '2016-02-29')[0m  [["project_id", 25]]
+  [1m[35mEntry Load (0.2ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ?  [["project_id", 25]]
+  Rendered entries/index.html.erb within layouts/application (13.0ms)
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 0.9ms)
+
+ActionView::Template::Error (undefined method `proyect_entry_path' for #<#<Class:0x007fe3b849d4e8>:0x007fe3b848edd0>):
+     6:      <% if entries.hours != nil %>
+     7:        <li><%= "#{entries.hours} h #{entries.minutes} m - #{entries.date.to_date}"%>
+     8:          <%= link_to("Edit", edit_project_entry_path(@projects, entries)) %> </li>
+     9:          <%= link_to("Delete", proyect_entry_path(@projects, entries),
+    10:          method: :delete, data: {confirm: "Are you sure?"}) %>
+    11:       <% end %>
+    12:   <% end%>
+  app/views/entries/index.html.erb:9:in `block in _app_views_entries_index_html_erb___607311510737934096_70308012941960'
+  app/views/entries/index.html.erb:5:in `_app_views_entries_index_html_erb___607311510737934096_70308012941960'
+
+
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (7.5ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (47.2ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.8ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (40.0ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (86.6ms)
+
+
+Started GET "/projects/25/entries" for ::1 at 2016-02-25 09:28:51 +0100
+Processing by EntriesController#index as HTML
+  Parameters: {"project_id"=>"25"}
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 25]]
+  [1m[35mEntry Load (0.1ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ? AND ("entries"."date" BETWEEN '2016-02-01' AND '2016-02-29')  [["project_id", 25]]
+  [1m[36mEntry Load (0.1ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ?[0m  [["project_id", 25]]
+  Rendered entries/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 470ms (Views: 467.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/entries.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-25 09:28:51 +0100
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-02-25 09:28:51 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-25 09:28:51 +0100
+
+
+Started GET "/assets/site.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-25 09:28:52 +0100
+
+
+Started GET "/assets/entries.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-02-25 09:28:52 +0100
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-25 09:28:52 +0100
+
+
+Started GET "/assets/projects.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-25 09:28:52 +0100
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-25 09:28:52 +0100
+
+
+Started GET "/assets/projects.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-02-25 09:28:52 +0100
+
+
+Started GET "/assets/site.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-02-25 09:28:52 +0100
+
+
+Started DELETE "/projects/25/entries/25" for ::1 at 2016-02-25 09:28:57 +0100
+
+AbstractController::ActionNotFound (The action 'destroy' could not be found for EntriesController):
+  actionpack (4.2.5.1) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.5.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.5.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.5.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.5.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.5.1) lib/action_dispatch/routing/route_set.rb:74:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.5.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.5.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.5.1) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.5.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.5.1) lib/action_dispatch/routing/route_set.rb:815:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.5.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.5.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.5.1) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/m.figand/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/m.figand/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/m.figand/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.4ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (36.4ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (77.4ms)
+
+
+Started GET "/projects/25/entries" for ::1 at 2016-02-25 09:32:59 +0100
+Processing by EntriesController#index as HTML
+  Parameters: {"project_id"=>"25"}
+  [1m[35mProject Load (0.2ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", 25]]
+  [1m[36mEntry Load (0.1ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ? AND ("entries"."date" BETWEEN '2016-02-01' AND '2016-02-29')[0m  [["project_id", 25]]
+  [1m[35mEntry Load (0.2ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ?  [["project_id", 25]]
+  Rendered entries/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 53ms (Views: 35.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/entries.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-25 09:33:00 +0100
+
+
+Started GET "/assets/projects.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-25 09:33:00 +0100
+
+
+Started GET "/assets/site.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-25 09:33:00 +0100
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-25 09:33:00 +0100
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-02-25 09:33:00 +0100
+
+
+Started GET "/assets/entries.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-02-25 09:33:00 +0100
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-25 09:33:00 +0100
+
+
+Started GET "/assets/projects.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-02-25 09:33:00 +0100
+
+
+Started GET "/assets/site.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-02-25 09:33:00 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-25 09:33:00 +0100
+
+
+Started DELETE "/projects/25/entries/25" for ::1 at 2016-02-25 09:33:04 +0100
+Processing by EntriesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"aYh3JaVRGcyH6enuX8OayZMphLU/q5JbIM0rcBESaXrREZQQVS/y6pkvli+yIxhb5KR1E78dwqN3jz9O4g5R8Q==", "project_id"=>"25", "id"=>"25"}
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 25]]
+  [1m[35mEntry Load (0.1ms)[0m  SELECT  "entries".* FROM "entries" WHERE "entries"."project_id" = ? AND "entries"."id" = ? LIMIT 1  [["project_id", 25], ["id", 25]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "entries" WHERE "entries"."id" = ?  [["id", 25]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 1.9ms)
+
+ActionView::MissingTemplate (Missing template entries/destroy, application/destroy with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder]}. Searched in:
+  * "/Users/m.figand/Documents/IRONHACK/Important Excersices/timetracking/app/views"
+):
+  actionview (4.2.5.1) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.5.1) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.5.1) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.5.1) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.5.1) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.5.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.5.1) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.5.1) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.5.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.5.1) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.5.1) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.5.1) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.5.1) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.5.1) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.5.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.5.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/m.figand/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.5.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.5.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.5.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.5.1) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.5.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.5.1) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.5.1) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.5.1) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.5.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.5.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.5.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.5.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.5.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.5.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.5.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.5.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.5.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.5.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.5.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.5.1) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.5.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.5.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.5.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.5.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.5.1) lib/action_dispatch/routing/route_set.rb:74:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.5.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.5.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.5.1) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.5.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.5.1) lib/action_dispatch/routing/route_set.rb:815:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.5.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.5.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.5.1) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.5.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/m.figand/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/m.figand/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/m.figand/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (40.1ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (32.9ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (71.6ms)
+
+
+Started GET "/projects/25/entries" for ::1 at 2016-02-25 09:34:32 +0100
+Processing by EntriesController#index as HTML
+  Parameters: {"project_id"=>"25"}
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", 25]]
+  [1m[36mEntry Load (0.1ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ? AND ("entries"."date" BETWEEN '2016-02-01' AND '2016-02-29')[0m  [["project_id", 25]]
+  [1m[35mEntry Load (0.2ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ?  [["project_id", 25]]
+  Rendered entries/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 28ms (Views: 17.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/site.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-25 09:34:32 +0100
+
+
+Started GET "/assets/entries.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-25 09:34:32 +0100
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-02-25 09:34:32 +0100
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-25 09:34:32 +0100
+
+
+Started GET "/assets/projects.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-25 09:34:32 +0100
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-25 09:34:32 +0100
+
+
+Started GET "/assets/entries.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-02-25 09:34:32 +0100
+
+
+Started GET "/assets/projects.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-02-25 09:34:32 +0100
+
+
+Started GET "/assets/site.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-02-25 09:34:32 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-25 09:34:32 +0100
+
+
+Started GET "/projects/25/entries" for ::1 at 2016-02-25 09:34:40 +0100
+Processing by EntriesController#index as HTML
+  Parameters: {"project_id"=>"25"}
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 25]]
+  [1m[35mEntry Load (0.1ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ? AND ("entries"."date" BETWEEN '2016-02-01' AND '2016-02-29')  [["project_id", 25]]
+  [1m[36mEntry Load (0.1ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ?[0m  [["project_id", 25]]
+  Rendered entries/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 20ms (Views: 18.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/entries.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-25 09:34:40 +0100
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-25 09:34:40 +0100
+
+
+Started GET "/assets/projects.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-25 09:34:40 +0100
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-02-25 09:34:40 +0100
+
+
+Started GET "/assets/site.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-25 09:34:41 +0100
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-25 09:34:41 +0100
+
+
+Started GET "/assets/entries.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-02-25 09:34:41 +0100
+
+
+Started GET "/assets/projects.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-02-25 09:34:41 +0100
+
+
+Started GET "/assets/site.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-02-25 09:34:41 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-25 09:34:41 +0100
+
+
+Started GET "/projects/20/entries" for ::1 at 2016-02-25 09:37:06 +0100
+Processing by EntriesController#index as HTML
+  Parameters: {"project_id"=>"20"}
+  [1m[35mProject Load (0.2ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", 20]]
+  [1m[36mEntry Load (0.2ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ? AND ("entries"."date" BETWEEN '2016-02-01' AND '2016-02-29')[0m  [["project_id", 20]]
+  [1m[35mEntry Load (0.1ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ?  [["project_id", 20]]
+  Rendered entries/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 37ms (Views: 18.6ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/projects/20/entries/20" for ::1 at 2016-02-25 09:37:11 +0100
+Processing by EntriesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8tEOufb9UTuQiWml1SZqvppfNz3Api3Snp9+kClRJYBKSO2MBoO6HY5PFmQ4xugs7dLGm0AQfSrJ3Wqu2k0dCw==", "project_id"=>"20", "id"=>"20"}
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 20]]
+  [1m[35mEntry Load (0.1ms)[0m  SELECT  "entries".* FROM "entries" WHERE "entries"."project_id" = ? AND "entries"."id" = ? LIMIT 1  [["project_id", 20], ["id", 20]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms)
+
+ArgumentError (wrong number of arguments (1 for 0)):
+  app/controllers/entries_controller.rb:48:in `destroy'
+
+
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.9ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (41.1ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (36.0ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/m.figand/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (77.0ms)
+
+
+Started GET "/projects/24/entries" for ::1 at 2016-02-25 09:38:27 +0100
+Processing by EntriesController#index as HTML
+  Parameters: {"project_id"=>"24"}
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 24]]
+  [1m[35mEntry Load (0.1ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ? AND ("entries"."date" BETWEEN '2016-02-01' AND '2016-02-29')  [["project_id", 24]]
+  [1m[36mEntry Load (0.1ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ?[0m  [["project_id", 24]]
+  Rendered entries/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 29ms (Views: 16.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/projects/25/entries" for ::1 at 2016-02-25 09:38:31 +0100
+Processing by EntriesController#index as HTML
+  Parameters: {"project_id"=>"25"}
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", 25]]
+  [1m[36mEntry Load (0.1ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ? AND ("entries"."date" BETWEEN '2016-02-01' AND '2016-02-29')[0m  [["project_id", 25]]
+  [1m[35mEntry Load (0.1ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ?  [["project_id", 25]]
+  Rendered entries/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 14ms (Views: 12.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projects/24/entries" for ::1 at 2016-02-25 09:38:36 +0100
+Processing by EntriesController#index as HTML
+  Parameters: {"project_id"=>"24"}
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 24]]
+  [1m[35mEntry Load (0.1ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ? AND ("entries"."date" BETWEEN '2016-02-01' AND '2016-02-29')  [["project_id", 24]]
+  [1m[36mEntry Load (0.1ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ?[0m  [["project_id", 24]]
+  Rendered entries/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/projects/24/entries/24" for ::1 at 2016-02-25 09:38:39 +0100
+Processing by EntriesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"FwJflAq0WhqszrzjQ7rTOLlTVE/bpIQ6wYkD09Mu6OOvm7yh+sqxPLIIwyKuWlGqzt6l6VsS1MKWyxftIDLQaA==", "project_id"=>"24", "id"=>"24"}
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", 24]]
+  [1m[36mEntry Load (0.3ms)[0m  [1mSELECT  "entries".* FROM "entries" WHERE "entries"."project_id" = ? AND "entries"."id" = ? LIMIT 1[0m  [["project_id", 24], ["id", 24]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "entries" WHERE "entries"."id" = ?[0m  [["id", 24]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/projects/24/entries
+Completed 302 Found in 7ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/projects/24/entries" for ::1 at 2016-02-25 09:38:39 +0100
+Processing by EntriesController#index as HTML
+  Parameters: {"project_id"=>"24"}
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 24]]
+  [1m[35mEntry Load (0.1ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ? AND ("entries"."date" BETWEEN '2016-02-01' AND '2016-02-29')  [["project_id", 24]]
+  [1m[36mEntry Load (0.1ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ?[0m  [["project_id", 24]]
+  Rendered entries/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 16ms (Views: 14.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/projects/23/entries" for ::1 at 2016-02-25 09:41:21 +0100
+Processing by EntriesController#index as HTML
+  Parameters: {"project_id"=>"23"}
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", 23]]
+  [1m[36mEntry Load (0.2ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ? AND ("entries"."date" BETWEEN '2016-02-01' AND '2016-02-29')[0m  [["project_id", 23]]
+  [1m[35mEntry Load (0.1ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ?  [["project_id", 23]]
+  Rendered entries/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 35ms (Views: 19.0ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/projects/23/entries/23" for ::1 at 2016-02-25 09:41:25 +0100
+Processing by EntriesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"dk/zP/5YimD8SOQTPiNHUIkatpXQW3F++gKZm3ZjkaDO1hAKDiZhRuKOm9LTw8XC/pdHM1DtIYatQI2lhX+pKw==", "project_id"=>"23", "id"=>"23"}
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 23]]
+  [1m[35mEntry Load (0.4ms)[0m  SELECT  "entries".* FROM "entries" WHERE "entries"."project_id" = ? AND "entries"."id" = ? LIMIT 1  [["project_id", 23], ["id", 23]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  DELETE FROM "entries" WHERE "entries"."id" = ?  [["id", 23]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/projects/23/entries
+Completed 302 Found in 10ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/projects/23/entries" for ::1 at 2016-02-25 09:41:25 +0100
+Processing by EntriesController#index as HTML
+  Parameters: {"project_id"=>"23"}
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", 23]]
+  [1m[36mEntry Load (0.1ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ? AND ("entries"."date" BETWEEN '2016-02-01' AND '2016-02-29')[0m  [["project_id", 23]]
+  [1m[35mEntry Load (0.1ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ?  [["project_id", 23]]
+  Rendered entries/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 18ms (Views: 16.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projects/22/entries" for ::1 at 2016-02-25 09:42:16 +0100
+Processing by EntriesController#index as HTML
+  Parameters: {"project_id"=>"22"}
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 22]]
+  [1m[35mEntry Load (0.3ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ? AND ("entries"."date" BETWEEN '2016-02-01' AND '2016-02-29')  [["project_id", 22]]
+  [1m[36mEntry Load (0.2ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ?[0m  [["project_id", 22]]
+  Rendered entries/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 35ms (Views: 19.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/projects/21/entries" for ::1 at 2016-02-25 09:44:10 +0100
+Processing by EntriesController#index as HTML
+  Parameters: {"project_id"=>"21"}
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", 21]]
+  [1m[36mEntry Load (0.1ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ? AND ("entries"."date" BETWEEN '2016-02-01' AND '2016-02-29')[0m  [["project_id", 21]]
+  [1m[35mEntry Load (0.1ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ?  [["project_id", 21]]
+  Rendered entries/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 36ms (Views: 24.0ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/projects/21/entries/21" for ::1 at 2016-02-25 09:44:13 +0100
+Processing by EntriesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"jCOdysOUqBJuTs9gixZKxG99GopvmI19y/NpSd6MCrg0un7/M+pDNHCIsKFm9shWGPDrLO8u3YWcsX13LZAyMw==", "project_id"=>"21", "id"=>"21"}
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 21]]
+  [1m[35mEntry Load (0.3ms)[0m  SELECT  "entries".* FROM "entries" WHERE "entries"."project_id" = ? AND "entries"."id" = ? LIMIT 1  [["project_id", 21], ["id", 21]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  DELETE FROM "entries" WHERE "entries"."id" = ?  [["id", 21]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/projects/21/entries
+Completed 302 Found in 7ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/projects/21/entries" for ::1 at 2016-02-25 09:44:13 +0100
+Processing by EntriesController#index as HTML
+  Parameters: {"project_id"=>"21"}
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", 21]]
+  [1m[36mEntry Load (0.1ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ? AND ("entries"."date" BETWEEN '2016-02-01' AND '2016-02-29')[0m  [["project_id", 21]]
+  [1m[35mEntry Load (0.1ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."project_id" = ?  [["project_id", 21]]
+  Rendered entries/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 18ms (Views: 16.3ms | ActiveRecord: 0.2ms)

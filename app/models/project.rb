@@ -1,6 +1,8 @@
 class Project < ActiveRecord::Base
   self.table_name = 'projects'
+  
   has_many :entries
+
   validates :name, uniqueness: true
   validates :name, presence: true
   validates :name, length: {maximum: 30}

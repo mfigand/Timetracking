@@ -5,7 +5,10 @@
   <% @entries.each do |entries| %>
      <% if entries.hours != nil %>
        <li><%= "#{entries.hours} h #{entries.minutes} m - #{entries.date.to_date}"%>
-         <%= link_to("Edit", edit_project_entry_path(@projects, entries)) %> </li>
+         <%= link_to("Edit", edit_project_entry_path(@projects, entries)) %>
+         <%= link_to("Delete", project_entry_path(@projects, entries),
+         method: :delete, data: {confirm: "Are you sure?"}) %>
+      </li>
       <% end %>
   <% end%>
 </ul>
